@@ -11,32 +11,60 @@ const metrics = [
 
 const services = [
   {
-    title: 'Web Development',
-    description: 'Modern, conversion-focused websites and web apps built in React, Next.js, Node.js, MongoDB, and full-stack stack combinations.',
-    tags: ['MERN Stack', 'Next.js', 'React', 'Laravel', 'Node.js'],
+    title: 'Website & Software Development',
+    description: 'Custom websites and software products built for business growth, quality performance, and digital scalability.',
+    tags: ['Web Apps', 'Software', 'Custom Build', 'Scalable Systems'],
     accent: 'dark',
-    highlights: ['Custom web apps', 'Conversion-first UX', 'Performance optimization', 'Scalable architecture'],
+    highlights: ['Business websites', 'Custom software solutions', 'Responsive architecture', 'Performance-focused builds'],
   },
   {
-    title: 'SEO Services',
-    description: 'Technical SEO, ranking strategy, content optimization, and local search growth that help your brand get discovered and trusted.',
-    tags: ['On-page SEO', 'Technical SEO', 'Keyword Research', 'Local SEO'],
+    title: 'WordPress & E-commerce',
+    description: 'Flexible WordPress websites and e-commerce experiences designed to convert traffic into leads and sales.',
+    tags: ['WordPress', 'WooCommerce', 'Online Stores', 'CMS'],
     accent: 'sand',
-    highlights: ['Keyword strategy', 'Technical audits', 'Content structure', 'Local visibility growth'],
+    highlights: ['WordPress builds', 'E-commerce storefronts', 'Product pages', 'Conversion-focused UX'],
   },
   {
-    title: 'App Development',
-    description: 'Mobile and web app experiences engineered for usability, speed, performance, and business goals across devices.',
-    tags: ['React Native', 'Flutter', 'PWAs', 'API Integration'],
+    title: 'UI/UX Design (Web & Mobile)',
+    description: 'Clean, intuitive interfaces for web and mobile products that prioritize user flow, clarity, and trust.',
+    tags: ['UX Strategy', 'Wireframes', 'Mobile Design', 'System Design'],
     accent: 'sage',
-    highlights: ['Mobile-first flows', 'API integrations', 'Smooth product logic', 'Cross-device testing'],
+    highlights: ['User journeys', 'Responsive flows', 'Interface design', 'Experience strategy'],
   },
   {
-    title: 'Graphic Design',
-    description: 'Brand identity, social creatives, packaging concepts, landing page visuals, and marketing design that feel premium and memorable.',
-    tags: ['Branding', 'Social Media', 'Packaging', 'Marketing Design'],
+    title: 'Logo & Brand Identity',
+    description: 'Premium brand identities that help businesses look memorable, consistent, and credible across every touchpoint.',
+    tags: ['Logo Design', 'Brand Kit', 'Identity', 'Visual Style'],
     accent: 'terracotta',
-    highlights: ['Brand systems', 'Campaign visuals', 'Landing page design', 'Packaging concepts'],
+    highlights: ['Logo concepts', 'Brand systems', 'Typography direction', 'Visual consistency'],
+  },
+  {
+    title: 'Graphic Design & Marketing',
+    description: 'Campaign visuals, promotional graphics, and digital assets designed to support reach, awareness, and conversions.',
+    tags: ['Marketing Design', 'Social Creative', 'Campaigns', 'Digital Assets'],
+    accent: 'dark',
+    highlights: ['Social graphics', 'Campaign assets', 'Marketing creatives', 'Brand promotions'],
+  },
+  {
+    title: 'SEO & Google Ranking',
+    description: 'Search engine optimization strategies built to improve visibility, content relevance, and long-term organic growth.',
+    tags: ['SEO', 'Ranking', 'Content', 'Search Growth'],
+    accent: 'sand',
+    highlights: ['Keyword strategy', 'Technical SEO', 'On-page optimization', 'Ranking improvements'],
+  },
+  {
+    title: 'Local SEO & Google Business Profile',
+    description: 'Local growth systems for businesses that want more visibility in their area and stronger trust from local audiences.',
+    tags: ['Local SEO', 'Google Profile', 'Maps', 'Local Reach'],
+    accent: 'sage',
+    highlights: ['Map visibility', 'Profile optimization', 'Local ranking', 'Trust-building content'],
+  },
+  {
+    title: 'Landing Pages & Optimization',
+    description: 'Focused landing pages and optimization improvements that increase clarity, engagement, and higher-value conversions.',
+    tags: ['Landing Pages', 'Optimization', 'Conversion', 'Funnels'],
+    accent: 'terracotta',
+    highlights: ['Landing page design', 'Conversion tweaks', 'Performance reviews', 'Sales-focused messaging'],
   },
 ]
 
@@ -206,18 +234,14 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ]
 
-const whatsappNumber = '923021444269'
+const whatsappNumber = '13854268090'
+const whatsappDisplayNumber = '+1 (385) 426-8090'
 
 const contactInfo = [
   {
     label: 'Email',
-    value: 'hello@zaighamstudio.com',
-    href: 'mailto:hello@zaighamstudio.com',
-  },
-  {
-    label: 'Phone',
-    value: '+92 302 1444269',
-    href: 'tel:+923021444269',
+    value: 'hello@zaighumali.com',
+    href: 'mailto:hello@zaighumali.com',
   },
 ]
 
@@ -283,6 +307,7 @@ function AnimatedMetric({ value, suffix, label }) {
 function App() {
   const bookRef = useRef(null)
   const projectsRef = useRef(null)
+  const serviceCarouselRef = useRef(null)
   const [cursor, setCursor] = useState({ x: 0, y: 0, hovered: false })
   const [bookOpen, setBookOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -292,27 +317,51 @@ function App() {
     service: '',
     details: '',
   })
+  const [formStatus, setFormStatus] = useState({ type: '', message: '' })
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+    if (formStatus.type) {
+      setFormStatus({ type: '', message: '' })
+    }
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const message = [
-      'New project inquiry',
-      `Name: ${formData.name || 'Not provided'}`,
-      `Email: ${formData.email || 'Not provided'}`,
-      `Service: ${formData.service || 'Not provided'}`,
-      `Project details: ${formData.details || 'Not provided'}`,
-    ].join('\n')
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      service: formData.service,
+      details: formData.details,
+      _subject: 'New project inquiry from Zaigham portfolio',
+      _captcha: 'false',
+      _template: 'table',
+    }
 
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/hello@zaighumali.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
 
-    setFormData({ name: '', email: '', service: '', details: '' })
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      setFormData({ name: '', email: '', service: '', details: '' })
+      setFormStatus({ type: 'success', message: 'Thanks! Your inquiry has been sent successfully.' })
+    } catch (error) {
+      setFormStatus({
+        type: 'error',
+        message: 'There was a problem sending the form. Please email hello@zaighumali.com directly.',
+      })
+    }
   }
 
   useEffect(() => {
@@ -350,6 +399,20 @@ function App() {
     target: projectsRef,
     offset: ['start start', 'end end'],
   })
+
+  const scrollServices = (direction) => {
+    const container = serviceCarouselRef.current
+    if (!container) return
+
+    const firstCard = container.querySelector('.service-card')
+    const gap = 22
+    const cardWidth = firstCard ? firstCard.getBoundingClientRect().width + gap : 320
+
+    container.scrollBy({
+      left: direction * cardWidth,
+      behavior: 'smooth',
+    })
+  }
 
   // Hover-controlled animations for the book scene
   const coverRotation = bookOpen ? -140 : 0
@@ -560,37 +623,48 @@ function App() {
             <h2>Design, development, and growth under one roof.</h2>
           </motion.div>
 
-          <div className="service-grid">
-            {services.map((service) => (
-              <motion.article key={service.title} className={`service-card ${service.accent}`} {...fadeInUp}>
-                <div className="service-card-inner">
-                  <div className="service-card-face service-card-front">
-                    <div className="service-topline">
-                      <span className="service-index">0{services.indexOf(service) + 1}</span>
-                    </div>
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-                    <div className="tag-row">
-                      {service.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
+          <div className="service-slider-shell">
+            <div className="service-slider-controls">
+              <button type="button" className="service-slider-button" aria-label="Scroll services left" onClick={() => scrollServices(-1)}>
+                ←
+              </button>
+              <button type="button" className="service-slider-button" aria-label="Scroll services right" onClick={() => scrollServices(1)}>
+                →
+              </button>
+            </div>
 
-                  <div className="service-card-face service-card-back">
-                    <div className="service-topline">
-                      <span className="service-index">What’s included</span>
+            <div className="service-grid" ref={serviceCarouselRef}>
+              {services.map((service) => (
+                <motion.article key={service.title} className={`service-card ${service.accent}`} {...fadeInUp}>
+                  <div className="service-card-inner">
+                    <div className="service-card-face service-card-front">
+                      <div className="service-topline">
+                        <span className="service-index">0{services.indexOf(service) + 1}</span>
+                      </div>
+                      <h3>{service.title}</h3>
+                      <p>{service.description}</p>
+                      <div className="tag-row">
+                        {service.tags.map((tag) => (
+                          <span key={tag}>{tag}</span>
+                        ))}
+                      </div>
                     </div>
-                    <h3>{service.title}</h3>
-                    <ul className="service-back-list">
-                      {service.highlights.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
+
+                    <div className="service-card-face service-card-back">
+                      <div className="service-topline">
+                        <span className="service-index">What’s included</span>
+                      </div>
+                      <h3>{service.title}</h3>
+                      <ul className="service-back-list">
+                        {service.highlights.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -739,9 +813,18 @@ function App() {
 
               <div className="contact-detail-stack">
                 {contactInfo.map((item) => (
-                  <a key={item.label} href={item.href} className="contact-tile">
+                  <a key={item.label} href={item.href} className="contact-tile" target={item.label === 'WhatsApp' ? '_blank' : undefined} rel={item.label === 'WhatsApp' ? 'noreferrer' : undefined}>
                     <span>{item.label}</span>
-                    <strong>{item.value}</strong>
+                    <strong>
+                      {item.icon ? (
+                        <>
+                          <span className="contact-icon" aria-hidden="true">{item.icon}</span>
+                          {item.value}
+                        </>
+                      ) : (
+                        item.value
+                      )}
+                    </strong>
                   </a>
                 ))}
               </div>
@@ -802,6 +885,26 @@ function App() {
                   required
                 />
               </label>
+
+              {formStatus.message && (
+                <div className={`form-status ${formStatus.type}`} role="status" aria-live="polite">
+                  {formStatus.message}
+                </div>
+              )}
+
+              <a
+                className="whatsapp-glass-link"
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hi, let\'s discuss my project.')}`}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Chat on WhatsApp"
+              >
+                <span className="whatsapp-icon" aria-hidden="true">✆</span>
+                <span className="whatsapp-text-wrap">
+                  <span className="whatsapp-label">Let&apos;s discuss on WhatsApp</span>
+                  <span className="whatsapp-number">{whatsappDisplayNumber}</span>
+                </span>
+              </a>
 
               <button type="submit" className="primary-button form-button">
                 Send inquiry
