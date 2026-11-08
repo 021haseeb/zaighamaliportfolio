@@ -709,13 +709,16 @@ body {
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 22px;
+  align-items: stretch;
 }
 
 .service-card {
   position: relative;
-  min-height: 290px;
+  min-height: 440px;
+  height: 100%;
+  display: flex;
   perspective: 1600px;
   background: transparent;
   border: none;
@@ -731,13 +734,15 @@ body {
 .service-card-inner {
   position: relative;
   width: 100%;
-  min-height: 290px;
+  min-height: 440px;
+  height: 100%;
+  flex: 1;
   transform-style: preserve-3d;
   transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .service-card:hover .service-card-inner {
-  transform: rotateY(180deg) rotateZ(180deg);
+  transform: rotateY(180deg);
 }
 
 .service-card-face {
@@ -745,7 +750,8 @@ body {
   inset: 0;
   display: flex;
   flex-direction: column;
-  padding: 24px 20px 18px;
+  height: 100%;
+  padding: 26px 22px 20px;
   border-radius: 26px;
   border: 1px solid rgba(35, 31, 28, 0.08);
   backface-visibility: hidden;
@@ -803,7 +809,7 @@ body {
 .service-card-back {
   background: rgba(24, 20, 18, 0.96);
   color: #f9f1ea;
-  transform: rotateY(180deg) rotateZ(180deg);
+  transform: rotateY(180deg);
   padding-top: 22px;
 }
 
@@ -861,6 +867,7 @@ body {
   margin-top: auto;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 8px;
   padding-top: 18px;
 }
