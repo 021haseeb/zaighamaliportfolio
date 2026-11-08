@@ -15,24 +15,28 @@ const services = [
     description: 'Modern, conversion-focused websites and web apps built in React, Next.js, Node.js, MongoDB, and full-stack stack combinations.',
     tags: ['MERN Stack', 'Next.js', 'React', 'Laravel', 'Node.js'],
     accent: 'dark',
+    highlights: ['Custom web apps', 'Conversion-first UX', 'Performance optimization', 'Scalable architecture'],
   },
   {
     title: 'SEO Services',
     description: 'Technical SEO, ranking strategy, content optimization, and local search growth that help your brand get discovered and trusted.',
     tags: ['On-page SEO', 'Technical SEO', 'Keyword Research', 'Local SEO'],
     accent: 'sand',
+    highlights: ['Keyword strategy', 'Technical audits', 'Content structure', 'Local visibility growth'],
   },
   {
     title: 'App Development',
     description: 'Mobile and web app experiences engineered for usability, speed, performance, and business goals across devices.',
     tags: ['React Native', 'Flutter', 'PWAs', 'API Integration'],
     accent: 'sage',
+    highlights: ['Mobile-first flows', 'API integrations', 'Smooth product logic', 'Cross-device testing'],
   },
   {
     title: 'Graphic Design',
     description: 'Brand identity, social creatives, packaging concepts, landing page visuals, and marketing design that feel premium and memorable.',
     tags: ['Branding', 'Social Media', 'Packaging', 'Marketing Design'],
     accent: 'terracotta',
+    highlights: ['Brand systems', 'Campaign visuals', 'Landing page design', 'Packaging concepts'],
   },
 ]
 
@@ -203,6 +207,19 @@ const navItems = [
 ]
 
 const whatsappNumber = '923021444269'
+
+const contactInfo = [
+  {
+    label: 'Email',
+    value: 'hello@zaighamstudio.com',
+    href: 'mailto:hello@zaighamstudio.com',
+  },
+  {
+    label: 'Phone',
+    value: '+92 302 1444269',
+    href: 'tel:+923021444269',
+  },
+]
 
 const fadeInUp = {
   initial: { opacity: 0, y: 28 },
@@ -396,12 +413,18 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <p className="eyebrow">Full-stack digital partner for ambitious brands</p>
+            <div className="hero-intro-badges" aria-label="Specialties">
+              <span className="hero-chip">UI/UX</span>
+              <span className="hero-chip">Brand Design</span>
+              <span className="hero-chip">SEO Growth</span>
+            </div>
+
+            <p className="eyebrow">Full-stack digital partner for growing brands</p>
             <h1>
-              I build <span>websites, apps, brands, and SEO</span> that feel premium and perform.
+              I design <span className="gradient-text">high-impact digital experiences</span> that look premium and perform.
             </h1>
             <p className="intro-text">
-              I help founders, businesses, and growing brands transform ideas into polished digital experiences that look sharp, rank better, and convert faster.
+              I build websites, apps, and brand systems that help businesses stand out online, attract the right audience, and turn attention into measurable growth.
             </p>
 
             <div className="cta-row">
@@ -426,23 +449,46 @@ function App() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: 'easeOut', delay: 0.12 }}
           >
-            <div className="portrait-panel">
-              <div className="portrait-glow" />
-              <div className="portrait-card">
-                <div className="mini-tag">Available for select projects</div>
-                <div className="portrait-frame">
-                  <div className="portrait-shape">
-                    <img src={pp1} alt="Zaigham portrait" className="portrait-image" />
+            <div className="hero-visual-scene">
+              <div className="orb orb-one" />
+              <div className="orb orb-two" />
+
+              <motion.div
+                className="float-card float-card-one"
+                animate={{ y: [0, -14, 0], rotate: [0, 4, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <span>Brand systems</span>
+                <strong>Strategy + polish</strong>
+              </motion.div>
+
+              <motion.div
+                className="float-card float-card-two"
+                animate={{ y: [0, 12, 0], rotate: [0, -4, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <span>Live growth</span>
+                <strong>SEO + conversion</strong>
+              </motion.div>
+
+              <div className="portrait-panel">
+                <div className="portrait-glow" />
+                <div className="portrait-card">
+                  <div className="mini-tag">Zaigham Ali</div>
+                  <div className="portrait-frame">
+                    <div className="portrait-shape">
+                      <img src={pp1} alt="Zaigham portrait" className="portrait-image" />
+                    </div>
                   </div>
-                </div>
-                <div className="portrait-details">
-                  <div>
-                    <span>Specialty</span>
-                    <strong>Web + Growth</strong>
-                  </div>
-                  <div>
-                    <span>Delivery</span>
-                    <strong>Worldwide</strong>
+                  <div className="portrait-details">
+                    <div>
+                      <span>Specialty</span>
+                      <strong>Web + Growth</strong>
+                    </div>
+                    <div>
+                      <span>Delivery</span>
+                      <strong>Worldwide</strong>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -517,15 +563,31 @@ function App() {
           <div className="service-grid">
             {services.map((service) => (
               <motion.article key={service.title} className={`service-card ${service.accent}`} {...fadeInUp}>
-                <div className="service-topline">
-                  <span className="service-index">0{services.indexOf(service) + 1}</span>
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <div className="tag-row">
-                  {service.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+                <div className="service-card-inner">
+                  <div className="service-card-face service-card-front">
+                    <div className="service-topline">
+                      <span className="service-index">0{services.indexOf(service) + 1}</span>
+                    </div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <div className="tag-row">
+                      {service.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="service-card-face service-card-back">
+                    <div className="service-topline">
+                      <span className="service-index">What’s included</span>
+                    </div>
+                    <h3>{service.title}</h3>
+                    <ul className="service-back-list">
+                      {service.highlights.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </motion.article>
             ))}
@@ -665,7 +727,19 @@ function App() {
           <motion.div className="contact-box" {...fadeInUp}>
             <div className="contact-copy">
               <p className="section-label">Book a project</p>
-              <h2>Tell me what you need, and I’ll help shape the right next step.</h2>
+              <h2>Let’s build something memorable.</h2>
+              <p className="contact-intro">
+                Whether you need a sharper brand, a conversion-focused website, or a product that scales, I’m ready to help shape the next step.
+              </p>
+
+              <div className="contact-detail-stack">
+                {contactInfo.map((item) => (
+                  <a key={item.label} href={item.href} className="contact-tile">
+                    <span>{item.label}</span>
+                    <strong>{item.value}</strong>
+                  </a>
+                ))}
+              </div>
             </div>
 
             <form className="booking-form" onSubmit={handleSubmit}>
