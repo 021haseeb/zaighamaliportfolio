@@ -1006,14 +1006,14 @@ body {
   top: 110px;
   overflow: hidden;
   padding-bottom: 8px;
-  padding-right: 24px;
+  padding-right: 0;
 }
 
 .project-slider-track {
   display: flex;
   gap: 20px;
   width: max-content;
-  padding-right: 80px;
+  padding-right: 0;
   will-change: transform;
 }
 
@@ -1676,6 +1676,7 @@ body {
     position: relative;
     top: 0;
     overflow: visible;
+    padding-right: 0;
   }
 
   .project-slider-track {
@@ -1690,6 +1691,8 @@ body {
   .project-slider-track .project-card {
     width: 100%;
     max-width: none;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -1800,6 +1803,16 @@ body {
 @media (max-width: 620px) {
   .portfolio-shell {
     width: min(100% - 18px, 1200px);
+  }
+
+  .project-slider-shell,
+  .project-slider-track {
+    padding-right: 0;
+  }
+
+  .project-slider-track .project-card {
+    width: 100%;
+    max-width: none;
   }
 
   .hero {
