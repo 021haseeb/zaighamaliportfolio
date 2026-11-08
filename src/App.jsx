@@ -601,8 +601,13 @@ function App() {
           </motion.div>
 
           <div className="stack-grid">
-            {techStack.map((item) => (
-              <motion.span key={item} className="stack-pill" {...fadeInUp}>
+            {techStack.map((item, index) => (
+              <motion.span
+                key={item}
+                className="stack-pill"
+                style={{ '--index': index, '--angle': `${index * 22.5}deg` }}
+                {...fadeInUp}
+              >
                 {item}
               </motion.span>
             ))}
