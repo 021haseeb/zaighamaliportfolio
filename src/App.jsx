@@ -256,9 +256,12 @@ const testimonials = [
 const clients = ['Asteria', 'Northpeak', 'Bloom', 'Savoir Labs', 'Velora', 'Nexa']
 
 const navItems = [
-  { label: 'About', href: '#about' },
+  { label: 'Home', href: '#home' },
+  { label: 'About Me', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#work' },
+  { label: 'Featured Projects', href: '#featured-projects' },
+  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Why Choose Me', href: '#why-choose-me' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -424,11 +427,6 @@ function App() {
     }
   }, [])
 
-  const { scrollYProgress: projectProgress } = useScroll({
-    target: projectsRef,
-    offset: ['start start', 'end end'],
-  })
-
   const scrollServices = (direction) => {
     const container = serviceCarouselRef.current
     if (!container) return
@@ -452,11 +450,6 @@ function App() {
   const visibleProjects = selectedCategory === 'All projects'
     ? projects
     : projects.filter((project) => project.category === selectedCategory)
-  const projectTrackX = useTransform(
-    projectProgress,
-    [0, 1],
-    ['0%', visibleProjects.length > 3 ? '-72%' : '0%'],
-  )
 
   return (
     <>
@@ -505,7 +498,7 @@ function App() {
       </header>
 
       <main>
-        <section className="hero section-frame">
+        <section className="hero section-frame" id="home">
           <motion.div
             className="hero-copy"
             initial={{ opacity: 0, y: 26 }}
@@ -598,10 +591,11 @@ function App() {
         <section 
           className="book-story section-frame" 
           ref={bookRef} 
-          id="process"
+          id="why-choose-me"
           onMouseEnter={() => setBookOpen(true)}
           onMouseLeave={() => setBookOpen(false)}
         >
+          <div id="about" aria-hidden="true" />
           <motion.p className="section-label" {...fadeInUp}>Why clients choose me</motion.p>
           <div className="book-scene">
             <div className="book-stage">
@@ -706,7 +700,7 @@ function App() {
 
         {/* Tech stack section hidden for now */}
 
-        <section className="projects section-frame" ref={projectsRef} id="work">
+        <section className="projects section-frame" ref={projectsRef} id="featured-projects">
           <motion.div className="section-heading" {...fadeInUp}>
             <p className="section-label">Selected projects</p>
             <h2>Recent work built for clarity, trust, and growth.</h2>
@@ -730,9 +724,9 @@ function App() {
               {visibleProjects.length === 0 ? (
                 <div className="project-empty-state">No projects match this category yet.</div>
               ) : (
-                <motion.div className="project-slider-track" style={{ x: projectTrackX }}>
-                  {[...visibleProjects, ...visibleProjects].map((project, index) => (
-                    <article key={`${project.name}-${index}`} className={`project-card ${project.accent}`}>
+                <div className="project-slider-track">
+                  {visibleProjects.map((project) => (
+                    <article key={project.name} className={`project-card ${project.accent}`}>
                       <div className="project-visual">
                         <img className="project-image" src={project.image} alt={project.name} />
                       </div>
@@ -753,7 +747,7 @@ function App() {
                       </div>
                     </article>
                   ))}
-                </motion.div>
+                </div>
               )}
             </div>
           </div>
@@ -786,7 +780,7 @@ function App() {
           </div>
         </section>
 
-        <section className="testimonials section-frame">
+        <section className="testimonials section-frame" id="testimonials">
           <motion.div className="section-heading" {...fadeInUp}>
             <p className="section-label">Testimonials</p>
             <h2>Clients remember the quality, clarity, and confidence.</h2>
