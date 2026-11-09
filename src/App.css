@@ -1273,6 +1273,16 @@ body {
   padding: 0;
 }
 
+.project-type-tag {
+  display: block;
+  margin: 0 0 10px;
+  color: rgba(35, 31, 28, 0.62);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
 .project-image {
   display: block;
   width: 100%;

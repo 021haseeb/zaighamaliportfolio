@@ -731,6 +731,7 @@ function App() {
                         <img className="project-image" src={project.image} alt={project.name} />
                       </div>
                       <div className="project-copy">
+                        <span className="project-type-tag">{project.type}</span>
                         <h3>{project.name}</h3>
                         <p>{project.detail}</p>
                         <div className="project-meta">
