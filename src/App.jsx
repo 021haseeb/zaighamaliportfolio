@@ -759,30 +759,7 @@ function App() {
           </div>
         </section>
 
-        <section className="design-showcase section-frame">
-          <motion.div className="section-heading" {...fadeInUp}>
-            <p className="section-label">Graphic design</p>
-            <h2>Brand visuals and campaign identities that give businesses a recognizable voice.</h2>
-          </motion.div>
-
-          <div className="design-grid">
-            {designShowcase.map((item) => (
-              <motion.article key={item.title} className={`design-card ${item.tone}`} {...fadeInUp}>
-                <div className="design-visual">
-                  <img src={item.image} alt={item.title} className="design-image" />
-                  <div className="design-shape one" />
-                  <div className="design-shape two" />
-                  <div className="design-shape three" />
-                </div>
-                <div className="design-copy">
-                  <span>{item.category}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.note}</p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </section>
+        {/* Graphic design section hidden for now */}
 
         <section className="clients section-frame">
           <motion.div className="section-heading" {...fadeInUp}>
