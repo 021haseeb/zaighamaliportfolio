@@ -217,53 +217,44 @@ const designShowcase = [
 
 const testimonials = [
   {
-    quote: 'Zaighum delivered a website that feels premium and performs even better. Our conversions jumped within weeks.',
-    author: 'Maya Ali',
-    role: 'Founder, Asteria Studio',
+    quote: 'Zaighum helped us completely rethink our digital presence. The new site feels premium, clearer, and far more conversion-focused from the first visit onward.',
+    author: 'Kelly',
+    company: 'Web Services',
+    role: 'Client',
     glow: 'rgba(231, 154, 107, 0.5)',
     halo: 'rgba(255, 247, 241, 0.68)',
   },
   {
     quote: 'The app development and design work were exceptional. It felt strategic, not just visual. Everything was thought through.',
     author: 'Usman Farooq',
-    role: 'Director, Northpeak',
+    company: 'Northpeak',
+    role: 'Director',
     glow: 'rgba(124, 180, 220, 0.5)',
     halo: 'rgba(239, 247, 255, 0.7)',
   },
   {
     quote: 'Our SEO and web presence finally made sense. The project looked beautiful and brought in the right traffic.',
     author: 'Hira Saleem',
-    role: 'Owner, Bloom Agency',
+    company: 'Bloom Agency',
+    role: 'Owner',
     glow: 'rgba(170, 201, 120, 0.48)',
     halo: 'rgba(245, 250, 239, 0.68)',
   },
   {
     quote: 'He translated a messy idea into a polished digital experience that feels effortless to use. The process was smooth, fast, and highly strategic.',
     author: 'Ayesha Rahman',
-    role: 'Marketing Lead, Velora',
+    company: 'Velora',
+    role: 'Marketing Lead',
     glow: 'rgba(196, 112, 124, 0.46)',
     halo: 'rgba(255, 242, 244, 0.7)',
   },
   {
     quote: 'The work was a huge upgrade from our old stack. Not only did it look better, but it made our team significantly more efficient.',
     author: 'Sami Khan',
-    role: 'Operations Manager, Nexa',
+    company: 'Nexa',
+    role: 'Operations Manager',
     glow: 'rgba(176, 143, 220, 0.44)',
     halo: 'rgba(248, 243, 255, 0.7)',
-  },
-  {
-    quote: 'Every detail was considered, from structure and UX to performance and positioning. It felt like working with a senior partner, not just a freelancer.',
-    author: 'Rameen Tariq',
-    role: 'Co-founder, Savoir Labs',
-    glow: 'rgba(119, 194, 172, 0.45)',
-    halo: 'rgba(240, 255, 251, 0.7)',
-  },
-  {
-    quote: 'Our launch was cleaner and faster than expected. We received better engagement immediately and the brand finally felt aligned with the quality of our service.',
-    author: 'Adil Malik',
-    role: 'CEO, Northwood',
-    glow: 'rgba(232, 172, 108, 0.48)',
-    halo: 'rgba(255, 247, 236, 0.7)',
   },
 ]
 
@@ -351,141 +342,88 @@ function AnimatedMetric({ value, suffix, label }) {
 
 function TestimonialStack({ items }) {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [isFlipping, setIsFlipping] = useState(false)
-  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const [isPaused, setIsPaused] = useState(false)
 
   const activeItem = items[activeIndex]
-  const nextItem = items[(activeIndex + 1) % items.length]
+  const counter = `${String(activeIndex + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}`
 
   const updateIndex = (direction) => {
-    if (isFlipping) return
-
-    setIsFlipping(true)
-
-    window.setTimeout(() => {
-      setActiveIndex((prev) => (prev + direction + items.length) % items.length)
-      setIsFlipping(false)
-    }, 420)
+    setActiveIndex((prev) => (prev + direction + items.length) % items.length)
   }
 
-  const handlePointerMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect()
-    const x = (event.clientX - rect.left) / rect.width - 0.5
-    const y = (event.clientY - rect.top) / rect.height - 0.5
+  useEffect(() => {
+    if (isPaused) return
 
-    setTilt({
-      x: x * 12,
-      y: y * -12,
-    })
-  }
+    const timer = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % items.length)
+    }, 5000)
 
-  const handlePointerLeave = () => {
-    setTilt({ x: 0, y: 0 })
-  }
+    return () => window.clearInterval(timer)
+  }, [isPaused, items.length])
 
   return (
     <div
-      className="testimonial-stack-wrap"
+      className="testimonial-split"
       style={{
         '--ambient-glow': activeItem.glow,
         '--ambient-halo': activeItem.halo,
       }}
     >
-      <div className="testimonial-ambient" aria-hidden="true" />
+      <div className="testimonial-split-intro">
+        <div className="testimonial-badge-row">
+          <span className="testimonial-badge-rail" aria-hidden="true" />
+          <span className="testimonial-badge-label">CLIENT TESTIMONIALS</span>
+        </div>
 
-      <div className="testimonial-card-stage">
-        <motion.div
-          className="testimonial-card testimonial-card-backdrop"
-          animate={{
-            rotateX: tilt.y,
-            rotateY: tilt.x,
-            y: -18,
-            x: -10,
-          }}
-          transition={{ type: 'spring', stiffness: 180, damping: 18 }}
-        >
-          <div className="testimonial-card-face">
-            <div className="testimonial-card-header">
-              <span className="testimonial-badge">Client story</span>
-              <span className="testimonial-stars">★★★★★</span>
-            </div>
-            <p>{nextItem.quote}</p>
-            <footer>
-              <strong>{nextItem.author}</strong>
-              <span>{nextItem.role}</span>
-            </footer>
+        <h2>What our clients say.</h2>
+
+        <div className="testimonial-controls-row">
+          <span className="testimonial-counter">{counter}</span>
+
+          <div className="testimonial-control-group" aria-label="Testimonial controls">
+            <button type="button" className="testimonial-control-btn" aria-label="Previous testimonial" onClick={() => updateIndex(-1)}>
+              ←
+            </button>
+            <button type="button" className="testimonial-control-btn" aria-label="Next testimonial" onClick={() => updateIndex(1)}>
+              →
+            </button>
+            <button
+              type="button"
+              className="testimonial-control-btn testimonial-pause-btn"
+              aria-label={isPaused ? 'Resume testimonial rotation' : 'Pause testimonial rotation'}
+              onClick={() => setIsPaused((paused) => !paused)}
+            >
+              {isPaused ? '▶' : '❚❚'}
+            </button>
           </div>
-        </motion.div>
-
-        <motion.div
-          className="testimonial-card testimonial-card-active"
-          onClick={() => updateIndex(1)}
-          onMouseMove={handlePointerMove}
-          onMouseLeave={handlePointerLeave}
-          animate={{
-            rotateY: isFlipping ? 180 : tilt.x,
-            rotateX: isFlipping ? 8 : tilt.y,
-            scale: isFlipping ? 0.99 : 1,
-            y: isFlipping ? 8 : 0,
-          }}
-          transition={{ type: 'spring', stiffness: 140, damping: 18 }}
-          whileHover={{ y: -4 }}
-        >
-          <motion.div
-            className="testimonial-card-inner"
-            animate={{ rotateY: isFlipping ? 180 : 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="testimonial-card-face testimonial-card-front">
-              <div className="testimonial-card-header">
-                <span className="testimonial-badge">Client story</span>
-                <span className="testimonial-stars">★★★★★</span>
-              </div>
-              <p>{activeItem.quote}</p>
-              <footer>
-                <strong>{activeItem.author}</strong>
-                <span>{activeItem.role}</span>
-              </footer>
-            </div>
-
-            <div className="testimonial-card-face testimonial-card-back">
-              <div className="testimonial-card-header">
-                <span className="testimonial-badge">Next review</span>
-                <span className="testimonial-stars">★★★★★</span>
-              </div>
-              <p>{nextItem.quote}</p>
-              <footer>
-                <strong>{nextItem.author}</strong>
-                <span>{nextItem.role}</span>
-              </footer>
-            </div>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
 
-      <div className="testimonial-nav">
-        <button type="button" aria-label="Previous testimonial" onClick={() => updateIndex(-1)}>
-          ←
-        </button>
-        <div className="testimonial-progress" aria-label="Testimonial navigation">
+      <div className="testimonial-split-panel">
+        <div className="testimonial-company-name-wrap">
+          <span className="testimonial-company-name">{activeItem.company}</span>
+          <span className="testimonial-company-underline" aria-hidden="true" />
+        </div>
+
+        <blockquote className="testimonial-quote">
+          “{activeItem.quote}”
+        </blockquote>
+
+        <div className="testimonial-footer-meta">
+          <span>{activeItem.author}, {activeItem.company}</span>
+        </div>
+
+        <div className="testimonial-pagination" aria-label="Testimonial pagination">
           {items.map((item, index) => (
             <button
-              key={item.author}
+              key={`${item.author}-${item.company}`}
               type="button"
               className={index === activeIndex ? 'active' : ''}
               aria-label={`Show testimonial ${index + 1}`}
-              onClick={() => {
-                if (index !== activeIndex) {
-                  const direction = index > activeIndex ? 1 : -1
-                  updateIndex(direction)
-                }
-              }}
+              onClick={() => setActiveIndex(index)}
             />
           ))}
         </div>
-        <button type="button" aria-label="Next testimonial" onClick={() => updateIndex(1)}>
-          →
-        </button>
       </div>
     </div>
   )
@@ -1068,7 +1006,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>Zaighum — Web developer, SEO specialist, app builder, and designer</p>
+        <p>© 2026. All rights reserved.</p>
       </footer>
       </div>
     </>
