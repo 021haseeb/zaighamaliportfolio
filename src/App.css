@@ -1485,157 +1485,242 @@ body {
   }
 }
 
-.testimonial-marquee-wrap {
+.testimonial-stack-wrap {
   position: relative;
-  overflow: hidden;
-  padding: 8px 0 18px;
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+  min-height: 560px;
+  padding: 2.2rem 0 0;
+  --ambient-glow: rgba(231, 154, 107, 0.5);
+  --ambient-halo: rgba(255, 247, 241, 0.65);
 }
 
-.testimonial-marquee-wrap::before,
-.testimonial-marquee-wrap::after {
-  content: '';
+.testimonial-ambient {
   position: absolute;
-  top: 0;
-  width: 110px;
-  height: 100%;
-  z-index: 2;
+  inset: 4% 10% auto;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--ambient-glow) 0%, rgba(255, 255, 255, 0) 52%),
+    radial-gradient(circle at 75% 20%, var(--ambient-halo) 0%, rgba(255, 255, 255, 0) 38%);
+  filter: blur(14px);
+  opacity: 0.9;
   pointer-events: none;
 }
 
-.testimonial-marquee-wrap::before {
-  left: 0;
-  background: linear-gradient(90deg, rgba(245, 239, 231, 1), rgba(245, 239, 231, 0));
+.testimonial-card-stage {
+  position: relative;
+  width: min(100%, 740px);
+  height: 430px;
+  perspective: 1600px;
+  display: grid;
+  place-items: center;
 }
 
-.testimonial-marquee-wrap::after {
-  right: 0;
-  background: linear-gradient(270deg, rgba(245, 239, 231, 1), rgba(245, 239, 231, 0));
+.testimonial-card {
+  position: absolute;
+  width: min(100%, 620px);
+  min-height: 340px;
+  border: 1px solid rgba(80, 55, 46, 0.12);
+  border-radius: 30px;
+  background: rgba(30, 23, 20, 0.26);
+  box-shadow: 0 30px 80px rgba(31, 24, 19, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transform-style: preserve-3d;
 }
 
-.testimonial-scroller {
-  display: flex;
-  width: max-content;
-  gap: 18px;
-  animation: testimonialScroll 36s linear infinite;
+.testimonial-card-backdrop {
+  transform: translate(-20px, 18px) scale(0.96);
+  opacity: 0.74;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-card-active {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.testimonial-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  transform-style: preserve-3d;
   will-change: transform;
 }
 
-.testimonial-marquee-wrap:hover .testimonial-scroller {
-  animation-play-state: paused;
-}
-
-.quote-card {
-  position: relative;
-  margin: 0;
-  padding: 22px 20px 20px;
-  border: 1px solid rgba(35, 31, 28, 0.08);
-  border-radius: 26px;
-  background: linear-gradient(180deg, rgba(255, 250, 246, 0.9), rgba(243, 232, 221, 0.76));
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+.testimonial-card-face {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 240px;
-  min-width: 340px;
-  box-shadow: 0 24px 48px rgba(48, 36, 28, 0.06);
-  overflow: hidden;
-  isolation: isolate;
-  transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease, background 0.45s ease;
+  gap: 1.2rem;
+  padding: 1.5rem 1.5rem 1.35rem;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 251, 247, 0.84), rgba(255, 244, 236, 0.76));
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backface-visibility: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
-.quote-card::before {
-  content: '';
-  position: absolute;
-  inset: -35%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 35%),
-    radial-gradient(circle at 65% 75%, rgba(120, 181, 218, 0.2), rgba(120, 181, 218, 0) 28%),
-    radial-gradient(circle at 50% 50%, rgba(174, 118, 88, 0.18), rgba(174, 118, 88, 0) 40%);
-  opacity: 0;
-  filter: blur(14px);
-  transition: opacity 0.5s ease, transform 0.7s ease;
-  z-index: -1;
+.testimonial-card-active {
+  cursor: pointer;
+  z-index: 2;
+  transform-style: preserve-3d;
 }
 
-.quote-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  border-color: rgba(175, 116, 84, 0.24);
-  box-shadow: 0 28px 56px rgba(56, 39, 31, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  background: linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(237, 223, 212, 0.9));
+.testimonial-card-front {
+  transform: rotateY(0deg);
 }
 
-.quote-card:hover::before {
-  opacity: 1;
-  transform: scale(1.08);
-  animation: wateryRipple 0.9s ease-out forwards;
+.testimonial-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg, rgba(33, 27, 23, 0.92), rgba(51, 42, 36, 0.88));
 }
 
-.quote-topline {
+.testimonial-card-back .testimonial-card-header,
+.testimonial-card-back p,
+.testimonial-card-back footer strong,
+.testimonial-card-back footer span {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.testimonial-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 0.8rem;
+  color: rgba(28, 22, 18, 0.7);
 }
 
-.quote-mark {
-  font-size: 2.6rem;
-  line-height: 1;
-  color: rgba(163, 101, 77, 0.75);
+.testimonial-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(51, 42, 36, 0.08);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.quote-stars {
-  letter-spacing: 0.18em;
-  font-size: 0.64rem;
-  color: rgba(35, 31, 28, 0.7);
+.testimonial-stars {
+  letter-spacing: 0.25em;
+  font-size: 0.7rem;
 }
 
-.quote-card p {
+.testimonial-card p {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.9;
-  color: rgba(35, 31, 28, 0.8);
+  font-size: clamp(1.05rem, 1.5vw, 1.5rem);
+  line-height: 1.7;
+  color: rgba(28, 22, 18, 0.86);
+  font-weight: 500;
 }
 
-.quote-card footer {
-  margin-top: 22px;
+.testimonial-card footer {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
+  margin-top: auto;
 }
 
-.quote-card strong {
-  font-size: 0.9rem;
-  color: #211d1b;
+.testimonial-card footer strong {
+  font-size: 0.96rem;
+  color: #201b18;
 }
 
-.quote-card span {
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+.testimonial-card footer span {
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7d6a63;
+  color: #7f6960;
 }
 
-@keyframes testimonialScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.testimonial-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  width: min(100%, 500px);
 }
 
-@keyframes wateryRipple {
-  0% {
-    transform: scale(0.94);
-    opacity: 0.3;
+.testimonial-nav button {
+  border: 1px solid rgba(56, 44, 39, 0.12);
+  background: rgba(255, 255, 255, 0.38);
+  color: #211d1b;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.testimonial-nav button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(38, 29, 26, 0.08);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.testimonial-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.testimonial-progress button {
+  width: 11px;
+  height: 11px;
+  min-width: 11px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(65, 48, 41, 0.22);
+  border: 0;
+}
+
+.testimonial-progress button.active {
+  width: 32px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #201b18, #a36a52);
+}
+
+@media (max-width: 720px) {
+  .testimonial-stack-wrap {
+    min-height: 500px;
+    padding-top: 1.25rem;
   }
-  50% {
-    opacity: 0.72;
+
+  .testimonial-card-stage {
+    height: 360px;
   }
-  100% {
-    transform: scale(1.12);
-    opacity: 0;
+
+  .testimonial-card {
+    width: min(100%, 520px);
+    min-height: 300px;
+  }
+
+  .testimonial-card-inner {
+    min-height: 300px;
+  }
+
+  .testimonial-card-face {
+    padding: 1.15rem 1.1rem 1rem;
+    border-radius: 24px;
+  }
+
+  .testimonial-card p {
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  .testimonial-nav {
+    width: min(100%, 100%);
   }
 }
 
