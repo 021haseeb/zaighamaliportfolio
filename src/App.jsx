@@ -102,7 +102,7 @@ const projects = [
   {
     name: 'Top Tier Property',
     type: 'Real Estate Business Website',
-    detail: 'A modern real estate website designed to showcase premium property listings, highlight property details.',
+    detail: 'Premium property listings and a refined real-estate experience.',
     accent: 'terracotta',
     category: 'Website Design',
     liveUrl: 'https://toptierproperty-sohb.vercel.app/',
@@ -111,7 +111,7 @@ const projects = [
   {
     name: 'The Little Hands School',
     type: 'Educational Institution Website',
-    detail: 'A modern school website showcasing academics, facilities, and admissions.',
+    detail: 'A welcoming school experience for admissions, academics, and trust.',
     accent: 'sage',
     category: 'Website Design',
     liveUrl: 'https://littlehands.vercel.app/',
@@ -120,7 +120,7 @@ const projects = [
   {
     name: 'SAEC Construction',
     type: 'Construction website',
-    detail: 'A professional website showcasing construction services and completed projects.',
+    detail: 'Construction services and completed work presented with clarity.',
     accent: 'gold',
     category: 'Website Design',
     liveUrl: 'https://bootstap-construction-website.vercel.app/',
@@ -129,7 +129,7 @@ const projects = [
   {
     name: 'EMY Healthcare',
     type: 'Healthcare website',
-    detail: 'Responsive healthcare site with clearer service messaging, patient trust, and accessibility-driven UX.',
+    detail: 'Accessible healthcare messaging with a cleaner, more trustworthy UX.',
     accent: 'stone',
     category: 'UI/UX',
     liveUrl: 'https://cor-health.vercel.app/',
@@ -138,7 +138,7 @@ const projects = [
   {
     name: 'Aurum E-commerce',
     type: 'E-commerce Website',
-    detail: 'A modern online store featuring product showcases and a seamless shopping experience.',
+    detail: 'A clean storefront designed to showcase products with ease.',
     accent: 'terracotta',
     category: 'WordPress',
     liveUrl: 'https://aurum-comprehensive-web-project.vercel.app/',
@@ -147,7 +147,7 @@ const projects = [
   {
     name: 'Glen Island Dentistry',
     type: 'Dental Clinic Website',
-    detail: 'A professional dental website showcasing treatments, services, and appointment booking.',
+    detail: 'A polished dental site built for treatment clarity and appointments.',
     accent: 'sage',
     category: 'WordPress',
     liveUrl: 'https://dentistone.vercel.app/',
@@ -156,7 +156,7 @@ const projects = [
   {
     name: 'Cavient Healthcare',
     type: 'Healthcare Website',
-    detail: 'A modern corporate website showcasing healthcare services and solutions.',
+    detail: 'Healthcare solutions presented with a strong, modern corporate feel.',
     accent: 'gold',
     category: 'UI/UX',
     liveUrl: 'https://cavient.vercel.app/',
@@ -165,7 +165,7 @@ const projects = [
   {
     name: 'Fri Kings Fast Food',
     type: 'Restaurant Website',
-    detail: 'A modern fast-food website showcasing menu items and food offerings.',
+    detail: 'A bold restaurant brand experience built around menu discovery.',
     accent: 'stone',
     category: 'Graphic Design',
     liveUrl: 'https://fri-kings-fast-food-web.vercel.app/',
@@ -174,7 +174,7 @@ const projects = [
   {
     name: 'Northoak Brand System',
     type: 'Logo & Branding',
-    detail: 'A warm, premium identity system created to modernize positioning and sharpen brand recognition.',
+    detail: 'A premium identity crafted to sharpen recognition and positioning.',
     accent: 'terracotta',
     category: 'Logo & Branding',
     liveUrl: '#contact',
@@ -183,7 +183,7 @@ const projects = [
   {
     name: 'Velora Campaign Suite',
     type: 'Graphic Design',
-    detail: 'A conversion-focused campaign toolkit featuring ad creatives, social assets, and landing page visuals.',
+    detail: 'Creative campaign visuals made for clicks, recall, and conversion.',
     accent: 'sage',
     category: 'Graphic Design',
     liveUrl: '#contact',
@@ -493,7 +493,7 @@ function App() {
         </nav>
 
         <a className="nav-cta desktop-cta" href="#contact">
-          Book a call
+          Start a project
         </a>
       </header>
 
@@ -523,8 +523,8 @@ function App() {
               <a className="primary-button" href="#work">
                 View projects
               </a>
-              <a className="secondary-button" href="#services">
-                Services
+              <a className="secondary-button" href="#contact">
+                Start a project
               </a>
             </div>
 
@@ -731,17 +731,15 @@ function App() {
                         <img className="project-image" src={project.image} alt={project.name} />
                       </div>
                       <div className="project-copy">
-                        <span>{project.type}</span>
                         <h3>{project.name}</h3>
                         <p>{project.detail}</p>
                         <div className="project-meta">
-                          <strong>{project.result || project.category}</strong>
                           <a
                             href={project.liveUrl}
                             target={project.liveUrl.startsWith('http') ? '_blank' : undefined}
                             rel={project.liveUrl.startsWith('http') ? 'noreferrer' : undefined}
                           >
-                            Live
+                            View Project
                           </a>
                         </div>
                       </div>
