@@ -296,10 +296,11 @@ body {
 
 .hero-copy h1 {
   margin: 0;
-  font-size: clamp(3.2rem, 5vw, 6rem);
-  line-height: 0.9;
+  font-size: clamp(3rem, 4.2vw, 5.4rem);
+  line-height: 0.96;
   letter-spacing: -0.07em;
-  max-width: 620px;
+  max-width: 610px;
+  text-wrap: balance;
 }
 
 .hero-copy h1 .gradient-text {
@@ -313,11 +314,12 @@ body {
 }
 
 .intro-text {
-  max-width: 600px;
-  margin-top: 24px;
+  max-width: 580px;
+  margin-top: 22px;
   font-size: 1.08rem;
   line-height: 1.8;
   color: rgba(35, 31, 28, 0.76);
+  text-wrap: pretty;
 }
 
 .cta-row {
@@ -2107,6 +2109,21 @@ body {
   .hero {
     min-height: auto;
     padding-top: 28px;
+  }
+
+  .hero-visual {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .hero-visual-scene {
+    width: min(360px, 100%);
+    margin-left: 0;
+  }
+
+  .portrait-panel {
+    justify-content: center;
+    width: min(360px, 100%);
   }
 
   .hero-copy {

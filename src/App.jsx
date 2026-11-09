@@ -513,10 +513,10 @@ function App() {
 
             <p className="eyebrow">Full-stack digital partner for growing brands</p>
             <h1>
-              I design <span className="gradient-text">high-impact digital experiences</span> that look premium and perform.
+              I turn <span className="gradient-text">ideas</span> into digital experiences that stand out.
             </h1>
             <p className="intro-text">
-              I build websites, apps, and brand systems that help businesses stand out online, attract the right audience, and turn attention into measurable growth.
+              I design and develop modern websites and applications that combine bold visuals, seamless experiences, and smart functionality to help brands grow online.
             </p>
 
             <div className="cta-row">
