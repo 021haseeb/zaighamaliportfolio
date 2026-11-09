@@ -654,7 +654,13 @@ function App() {
       </header>
 
       <main>
-        <section className="hero section-frame" id="home">
+        <motion.section
+          className="hero section-frame"
+          id="home"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <motion.div
             className="hero-copy"
             initial={{ opacity: 0, y: 26 }}
@@ -742,14 +748,18 @@ function App() {
               </div>
             </div>
           </motion.div>
-        </section>
+        </motion.section>
 
-        <section 
+        <motion.section 
           className="book-story section-frame" 
           ref={bookRef} 
           id="why-choose-me"
           onMouseEnter={() => setBookOpen(true)}
           onMouseLeave={() => setBookOpen(false)}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.18 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <div id="about" aria-hidden="true" />
           <motion.p className="section-label" {...fadeInUp}>Why clients choose me</motion.p>
@@ -801,9 +811,9 @@ function App() {
               </p>
             </motion.div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="services section-frame" id="services">
+        <motion.section className="services section-frame" id="services" initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
           <motion.div className="section-heading" {...fadeInUp}>
             <p className="section-label">Services</p>
             <h2>Design, development, and growth under one roof.</h2>
@@ -852,11 +862,11 @@ function App() {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Tech stack section hidden for now */}
 
-        <section className="projects section-frame" ref={projectsRef} id="featured-projects">
+        <motion.section className="projects section-frame" ref={projectsRef} id="featured-projects" initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
           <motion.div className="section-heading" {...fadeInUp}>
             <p className="section-label">Selected projects</p>
             <h2>Recent work built for clarity, trust, and growth.</h2>
@@ -906,20 +916,20 @@ function App() {
               )}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Graphic design section hidden for now */}
 
-        <section className="testimonials section-frame" id="testimonials">
+        <motion.section className="testimonials section-frame" id="testimonials" initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
           <motion.div className="section-heading" {...fadeInUp}>
             <p className="section-label">Testimonials</p>
             <h2>Words that feel as premium as the work behind them.</h2>
           </motion.div>
 
           <TestimonialStack items={testimonials} />
-        </section>
+        </motion.section>
 
-        <section className="contact-wrap section-frame" id="contact">
+        <motion.section className="contact-wrap section-frame" id="contact" initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
           <motion.div className="contact-box" {...fadeInUp}>
             <div className="contact-copy">
               <p className="section-label">Book a project</p>
@@ -1028,7 +1038,7 @@ function App() {
               </button>
             </form>
           </motion.div>
-        </section>
+        </motion.section>
       </main>
 
       <footer className="footer">
