@@ -736,6 +736,71 @@ body {
   color: rgba(35, 31, 28, 0.74);
 }
 
+.business-friction {
+  padding-top: 8px;
+  padding-bottom: 30px;
+}
+
+.business-friction-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 1.24fr);
+  align-items: center;
+  gap: 34px;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid rgba(17, 13, 11, 0.85);
+  border-radius: 32px;
+  background: #f5efe7;
+  box-shadow: 0 18px 40px rgba(33, 24, 19, 0.04);
+}
+
+.business-friction-media {
+  display: flex;
+  justify-content: center;
+}
+
+.business-friction-image-wrap {
+  width: min(100%, 560px);
+  min-height: 310px;
+  padding: 14px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(17, 13, 11, 0.1);
+}
+
+.business-friction-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+.business-friction-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding-right: 6px;
+}
+
+.business-friction-copy h2 {
+  margin: 0;
+  max-width: 620px;
+  font-size: clamp(2.2rem, 2.9vw, 3.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+  color: #1b1715;
+}
+
+.business-friction-copy p {
+  margin: 0;
+  max-width: 610px;
+  font-size: 1.02rem;
+  line-height: 1.9;
+  color: rgba(29, 25, 24, 0.76);
+}
+
 .section-heading {
   margin-bottom: 28px;
   text-align: center;
@@ -2003,8 +2068,22 @@ body {
   .service-grid,
   .design-grid,
   .testimonial-grid,
-  .contact-box {
+  .contact-box,
+  .business-friction-inner {
     grid-template-columns: 1fr;
+  }
+
+  .business-friction-inner {
+    gap: 22px;
+    padding: 18px;
+  }
+
+  .business-friction-copy {
+    padding-right: 0;
+  }
+
+  .business-friction-image-wrap {
+    width: 100%;
   }
 
   .stack-grid {

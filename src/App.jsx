@@ -750,6 +750,32 @@ function App() {
           </motion.div>
         </motion.section>
 
+        <motion.section
+          className="business-friction section-frame"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
+          <div className="business-friction-inner">
+            <div className="business-friction-media">
+              <div className="business-friction-image-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+                  alt="Team collaborating around a table"
+                />
+              </div>
+            </div>
+
+            <div className="business-friction-copy">
+              <h2>Struggling with an outdated website, missed leads, or clunky member portals?</h2>
+              <p>
+                Too many organisations waste time and money tangled in tech that just doesn’t work. We’ve seen it all—sites that don’t work on mobile, clunky member logins that leave users frustrated and teams left scrambling to manage systems that weren’t built with their mission in mind.
+              </p>
+            </div>
+          </div>
+        </motion.section>
+
         <motion.section 
           className="book-story section-frame" 
           ref={bookRef} 
