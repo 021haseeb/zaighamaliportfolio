@@ -305,12 +305,17 @@ body {
 
 .hero-copy h1 .gradient-text {
   display: inline-block;
+  position: relative;
+  padding: 0.04em 0.04em 0.02em 0;
+  margin-right: 0.02em;
   background: linear-gradient(135deg, #9d604a 0%, #d9a17a 42%, #3a2a27 100%);
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
   font-style: italic;
   font-weight: 500;
+  line-height: 0.98;
 }
 
 .intro-text {
