@@ -217,7 +217,7 @@ const designShowcase = [
 
 const testimonials = [
   {
-    quote: 'Zaigham delivered a website that feels premium and performs even better. Our conversions jumped within weeks.',
+    quote: 'Zaighum delivered a website that feels premium and performs even better. Our conversions jumped within weeks.',
     author: 'Maya Ali',
     role: 'Founder, Asteria Studio',
   },
@@ -566,7 +566,7 @@ function App() {
               <div className="portrait-panel">
                 <div className="portrait-glow" />
                 <div className="portrait-card">
-                  <div className="mini-tag">Zaigham Ali</div>
+                  <div className="mini-tag">Zaighum Ali</div>
                   <div className="portrait-frame">
                     <div className="portrait-shape">
                       <img src={pp1} alt="Zaigham portrait" className="portrait-image" />
@@ -607,7 +607,7 @@ function App() {
               >
                 <div className="book-cover-inner">
                   <span className="cover-kicker">Digital craft</span>
-                  <h3>Zaigham</h3>
+                  <h3>Zaighum</h3>
                   <p>Strategy, design, development, and growth in one partner.</p>
                 </div>
               </motion.div>
@@ -925,7 +925,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>Zaigham — Web developer, SEO specialist, app builder, and designer</p>
+        <p>Zaighum — Web developer, SEO specialist, app builder, and designer</p>
       </footer>
       </div>
     </>

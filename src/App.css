@@ -249,9 +249,9 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.08fr 0.92fr;
   align-items: center;
-  gap: 32px;
+  gap: 52px;
   min-height: 78vh;
   padding-top: 60px;
 }
@@ -259,6 +259,7 @@ body {
 .hero-copy {
   position: relative;
   z-index: 2;
+  padding-right: 12px;
 }
 
 .hero-intro-badges {
@@ -360,7 +361,9 @@ body {
 
 .hero-visual {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  width: 100%;
+  padding-left: 18px;
 }
 
 .hero-visual-scene {
@@ -370,6 +373,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 40px;
 }
 
 .orb {
@@ -438,7 +442,7 @@ body {
   min-height: 600px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   z-index: 3;
 }
 
