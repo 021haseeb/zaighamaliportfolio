@@ -559,6 +559,7 @@ function App() {
       />
 
       <div className="portfolio-shell">
+      <div className={`nav-backdrop ${isMenuOpen ? 'open' : ''}`} aria-hidden="true" />
       <header className="topbar">
         <div className="brand-mark">Z</div>
 
@@ -777,7 +778,7 @@ function App() {
           </div>
         </motion.section>
 
-        <motion.section className="services section-frame" id="services" initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
+        <motion.section className="services section-frame" id="services" initial={false} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
           <motion.div className="section-heading" {...fadeInUp}>
             <p className="section-label">Services</p>
             <h2>Design, development, and growth under one roof.</h2>
@@ -795,7 +796,7 @@ function App() {
 
             <div className="service-grid" ref={serviceCarouselRef}>
               {services.map((service) => (
-                <motion.article key={service.title} className={`service-card ${service.accent}`} {...fadeInUp}>
+                <motion.article key={service.title} className={`service-card ${service.accent}`} initial={false} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }}>
                   <div className="service-card-inner">
                     <div className="service-card-face service-card-front">
                       <div className="service-topline">

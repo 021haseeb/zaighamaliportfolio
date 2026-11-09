@@ -83,6 +83,23 @@ body {
   padding: 0 0 54px;
 }
 
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 13, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+  z-index: 20;
+}
+
+.nav-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .section-frame {
   padding: 32px 0;
 }
@@ -111,21 +128,21 @@ body {
   display: none;
   width: 48px;
   height: 48px;
-  border: 1px solid var(--line);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(244, 232, 223, 0.92));
+  border: 1px solid rgba(146, 197, 157, 0.2);
+  background: linear-gradient(135deg, rgba(18, 24, 22, 0.96), rgba(31, 41, 37, 0.92));
   border-radius: 18px;
   padding: 0;
   cursor: pointer;
   position: relative;
   z-index: 2;
-  box-shadow: 0 18px 30px rgba(66, 46, 36, 0.08);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .mobile-menu-toggle:hover {
   transform: translateY(-1px);
-  box-shadow: 0 20px 34px rgba(58, 42, 34, 0.12);
-  border-color: rgba(35, 31, 28, 0.12);
+  box-shadow: 0 20px 34px rgba(0, 0, 0, 0.22);
+  border-color: rgba(146, 197, 157, 0.32);
 }
 
 .mobile-menu-toggle span {
@@ -134,7 +151,7 @@ body {
   right: 12px;
   height: 2.5px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #2f261f, #b57b5f);
+  background: linear-gradient(90deg, #edf5ee, #9edca5);
   transition: transform 0.32s ease, opacity 0.28s ease, width 0.32s ease, top 0.32s ease, right 0.32s ease, left 0.32s ease, border-radius 0.32s ease;
 }
 
@@ -833,7 +850,7 @@ body {
 }
 
 .section-heading {
-  margin-bottom: 28px;
+  margin-bottom: 18px;
   text-align: center;
 }
 
@@ -855,16 +872,23 @@ body {
   text-align: center;
 }
 
+.services {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .service-slider-shell {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
+  margin: 0;
 }
 
 .service-slider-controls {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+  margin-bottom: 0;
 }
 
 .service-slider-button {
@@ -890,10 +914,12 @@ body {
 
 .service-grid {
   display: flex;
+  align-items: stretch;
   gap: 22px;
   overflow-x: auto;
   scroll-snap-type: x proximity;
-  padding-bottom: 8px;
+  padding: 0 0 2px;
+  margin: 0;
   scrollbar-width: none;
 }
 
@@ -2254,6 +2280,7 @@ body {
     padding: 12px 14px;
     position: sticky;
     top: 12px;
+    z-index: 50;
   }
 
   .desktop-cta {
@@ -2263,24 +2290,28 @@ body {
   .mobile-menu-toggle {
     display: block;
     margin-left: auto;
+    position: relative;
+    z-index: 60;
   }
 
   .nav-links {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: calc(100% + 10px);
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    top: 82px;
     display: none;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+    align-items: stretch;
+    gap: 12px;
     padding: 18px 16px 16px;
-    background: rgba(255, 250, 246, 0.96);
-    border: 1px solid rgba(35, 31, 28, 0.08);
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(36, 26, 24, 0.08);
-    width: 100%;
-    z-index: 20;
+    background: rgba(11, 16, 14, 0.68);
+    border: 1px solid rgba(146, 197, 157, 0.22);
+    border-radius: 22px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    width: auto;
+    z-index: 40;
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
   }
 
   .nav-links.open {
@@ -2290,7 +2321,18 @@ body {
 
   .nav-links a {
     width: 100%;
-    padding: 0.2rem 0;
+    padding: 0.85rem 0.95rem;
+    border-radius: 12px;
+    color: rgba(237, 245, 238, 0.9);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(146, 197, 157, 0.08);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    background: rgba(146, 197, 157, 0.08);
+    border-color: rgba(146, 197, 157, 0.2);
   }
 
   .mobile-cta {
