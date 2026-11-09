@@ -524,7 +524,7 @@ function App() {
                 View projects
               </a>
               <a className="secondary-button" href="#contact">
-                Start a project
+                Book a call
               </a>
             </div>
 
@@ -753,31 +753,6 @@ function App() {
         </section>
 
         {/* Graphic design section hidden for now */}
-
-        <section className="clients section-frame">
-          <motion.div className="section-heading" {...fadeInUp}>
-            <p className="section-label">Happy clients</p>
-            <h2>Trusted by businesses that wanted more than a template.</h2>
-          </motion.div>
-
-          <div className="client-marquee-wrap" aria-label="Client logos and names">
-            <div className="client-marquee-track">
-              {[...clients, ...clients, ...clients].map((client, index) => (
-                <motion.div
-                  key={`${client}-${index}`}
-                  className="client-pill"
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: index * 0.04 }}
-                  whileHover={{ y: -4, scale: 1.02, boxShadow: '0 18px 32px rgba(60, 46, 38, 0.1)' }}
-                >
-                  {client}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section className="testimonials section-frame" id="testimonials">
           <motion.div className="section-heading" {...fadeInUp}>
