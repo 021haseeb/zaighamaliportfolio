@@ -1100,6 +1100,41 @@ body {
   }
 }
 
+.project-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 24px;
+}
+
+.project-filter {
+  appearance: none;
+  border: 1px solid rgba(35, 31, 28, 0.1);
+  background: rgba(255, 255, 255, 0.6);
+  color: rgba(35, 31, 28, 0.8);
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.project-filter:hover,
+.project-filter:focus-visible {
+  border-color: rgba(120, 90, 70, 0.28);
+  transform: translateY(-1px);
+}
+
+.project-filter.active {
+  background: linear-gradient(135deg, #1d1a18, #4b3930);
+  color: #fffaf7;
+  border-color: transparent;
+  box-shadow: 0 12px 24px rgba(34, 27, 23, 0.16);
+}
+
 .project-sticky-wrap {
   position: relative;
   height: 760px;
@@ -1135,6 +1170,19 @@ body {
 .project-slider-track .project-copy {
   min-height: 190px;
   padding: 18px 18px 20px;
+}
+
+.project-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  border: 1px solid rgba(35, 31, 28, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  color: rgba(35, 31, 28, 0.72);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
 }
 
 .project-copy span {

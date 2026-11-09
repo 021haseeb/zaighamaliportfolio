@@ -96,12 +96,15 @@ import glenweb from './assets/glenweb.png'
 import cavient1 from './assets/cavient1.png'
 import { image } from 'framer-motion/client'
 
+const projectFilters = ['All projects', 'UI/UX', 'Website Design', 'WordPress', 'Logo & Branding', 'Graphic Design']
+
 const projects = [
   {
     name: 'Top Tier Property',
     type: 'Real Estate Business Website',
     detail: 'A modern real estate website designed to showcase premium property listings, highlight property details.',
     accent: 'terracotta',
+    category: 'Website Design',
     liveUrl: 'https://toptierproperty-sohb.vercel.app/',
     image: toptierweb,
   },
@@ -110,6 +113,7 @@ const projects = [
     type: 'Educational Institution Website',
     detail: 'A modern school website showcasing academics, facilities, and admissions.',
     accent: 'sage',
+    category: 'Website Design',
     liveUrl: 'https://littlehands.vercel.app/',
     image: thelittlehands,
   },
@@ -118,6 +122,7 @@ const projects = [
     type: 'Construction website',
     detail: 'A professional website showcasing construction services and completed projects.',
     accent: 'gold',
+    category: 'Website Design',
     liveUrl: 'https://bootstap-construction-website.vercel.app/',
     image: saecweb,
   },
@@ -126,6 +131,7 @@ const projects = [
     type: 'Healthcare website',
     detail: 'Responsive healthcare site with clearer service messaging, patient trust, and accessibility-driven UX.',
     accent: 'stone',
+    category: 'UI/UX',
     liveUrl: 'https://cor-health.vercel.app/',
     image: emyweb,
   },
@@ -134,6 +140,7 @@ const projects = [
     type: 'E-commerce Website',
     detail: 'A modern online store featuring product showcases and a seamless shopping experience.',
     accent: 'terracotta',
+    category: 'WordPress',
     liveUrl: 'https://aurum-comprehensive-web-project.vercel.app/',
     image: aurum,
   },
@@ -142,6 +149,7 @@ const projects = [
     type: 'Dental Clinic Website',
     detail: 'A professional dental website showcasing treatments, services, and appointment booking.',
     accent: 'sage',
+    category: 'WordPress',
     liveUrl: 'https://dentistone.vercel.app/',
     image: glenweb,
   },
@@ -150,6 +158,7 @@ const projects = [
     type: 'Healthcare Website',
     detail: 'A modern corporate website showcasing healthcare services and solutions.',
     accent: 'gold',
+    category: 'UI/UX',
     liveUrl: 'https://cavient.vercel.app/',
     image: cavient1,
   },
@@ -158,8 +167,27 @@ const projects = [
     type: 'Restaurant Website',
     detail: 'A modern fast-food website showcasing menu items and food offerings.',
     accent: 'stone',
+    category: 'Graphic Design',
     liveUrl: 'https://fri-kings-fast-food-web.vercel.app/',
     image: emyweb,
+  },
+  {
+    name: 'Northoak Brand System',
+    type: 'Logo & Branding',
+    detail: 'A warm, premium identity system created to modernize positioning and sharpen brand recognition.',
+    accent: 'terracotta',
+    category: 'Logo & Branding',
+    liveUrl: '#contact',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Velora Campaign Suite',
+    type: 'Graphic Design',
+    detail: 'A conversion-focused campaign toolkit featuring ad creatives, social assets, and landing page visuals.',
+    accent: 'sage',
+    category: 'Graphic Design',
+    liveUrl: '#contact',
+    image: 'https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=900&q=80',
   },
 ]
 
@@ -311,6 +339,7 @@ function App() {
   const [cursor, setCursor] = useState({ x: 0, y: 0, hovered: false })
   const [bookOpen, setBookOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState('All projects')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -420,7 +449,14 @@ function App() {
   const rightPageRotation = 0
   const bookReveal = bookOpen ? 1 : 0.8
   const copyY = bookOpen ? 0 : 20
-  const projectTrackX = useTransform(projectProgress, [0, 1], ['0%', '-72%'])
+  const visibleProjects = selectedCategory === 'All projects'
+    ? projects
+    : projects.filter((project) => project.category === selectedCategory)
+  const projectTrackX = useTransform(
+    projectProgress,
+    [0, 1],
+    ['0%', visibleProjects.length > 3 ? '-72%' : '0%'],
+  )
 
   return (
     <>
@@ -668,25 +704,7 @@ function App() {
           </div>
         </section>
 
-        <section className="stack section-frame">
-          <motion.div className="section-heading" {...fadeInUp}>
-            <p className="section-label">Tech stack</p>
-            <h2>Tools and technologies I use to build high-quality experiences.</h2>
-          </motion.div>
-
-          <div className="stack-grid">
-            {techStack.map((item, index) => (
-              <motion.span
-                key={item}
-                className="stack-pill"
-                style={{ '--index': index, '--angle': `${index * 22.5}deg` }}
-                {...fadeInUp}
-              >
-                {item}
-              </motion.span>
-            ))}
-          </div>
-        </section>
+        {/* Tech stack section hidden for now */}
 
         <section className="projects section-frame" ref={projectsRef} id="work">
           <motion.div className="section-heading" {...fadeInUp}>
@@ -694,28 +712,49 @@ function App() {
             <h2>Recent work built for clarity, trust, and growth.</h2>
           </motion.div>
 
+          <div className="project-filter-bar" aria-label="Project categories">
+            {projectFilters.map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                className={`project-filter ${selectedCategory === filter ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(filter)}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+
           <div className="project-sticky-wrap">
             <div className="project-slider-shell">
-              <motion.div className="project-slider-track" style={{ x: projectTrackX }}>
-                {[...projects, ...projects].map((project, index) => (
-                  <article key={`${project.name}-${index}`} className={`project-card ${project.accent}`}>
-                    <div className="project-visual">
-                      <img className="project-image" src={project.image} alt={project.name} />
-                    </div>
-                    <div className="project-copy">
-                      <span>{project.type}</span>
-                      <h3>{project.name}</h3>
-                      <p>{project.detail}</p>
-                      <div className="project-meta">
-                        <strong>{project.result}</strong>
-                        <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                          Live
-                        </a>
+              {visibleProjects.length === 0 ? (
+                <div className="project-empty-state">No projects match this category yet.</div>
+              ) : (
+                <motion.div className="project-slider-track" style={{ x: projectTrackX }}>
+                  {[...visibleProjects, ...visibleProjects].map((project, index) => (
+                    <article key={`${project.name}-${index}`} className={`project-card ${project.accent}`}>
+                      <div className="project-visual">
+                        <img className="project-image" src={project.image} alt={project.name} />
                       </div>
-                    </div>
-                  </article>
-                ))}
-              </motion.div>
+                      <div className="project-copy">
+                        <span>{project.type}</span>
+                        <h3>{project.name}</h3>
+                        <p>{project.detail}</p>
+                        <div className="project-meta">
+                          <strong>{project.result || project.category}</strong>
+                          <a
+                            href={project.liveUrl}
+                            target={project.liveUrl.startsWith('http') ? '_blank' : undefined}
+                            rel={project.liveUrl.startsWith('http') ? 'noreferrer' : undefined}
+                          >
+                            Live
+                          </a>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </motion.div>
+              )}
             </div>
           </div>
         </section>
