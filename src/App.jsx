@@ -263,10 +263,10 @@ const clients = ['Asteria', 'Northpeak', 'Bloom', 'Savoir Labs', 'Velora', 'Nexa
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About Me', href: '#about' },
+  { label: 'Why Choose Me', href: '#why-choose-me' },
   { label: 'Services', href: '#services' },
   { label: 'Featured Projects', href: '#featured-projects' },
   { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Why Choose Me', href: '#why-choose-me' },
   { label: 'Contact', href: '#contact' },
 ]
 
