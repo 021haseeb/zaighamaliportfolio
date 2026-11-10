@@ -2197,11 +2197,66 @@ body {
 
 .footer {
   padding: 18px 0 8px;
-  text-align: center;
   color: rgba(206, 221, 212, 0.68);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid rgba(146, 197, 157, 0.14);
+  padding-top: 18px;
+}
+
+.footer p {
+  margin: 0;
+  text-align: left;
+  color: rgba(206, 221, 212, 0.68);
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footer-nav a {
+  position: relative;
+  color: rgba(237, 245, 238, 0.82);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible {
+  color: #edf5ee;
+}
+
+.footer-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: rgba(146, 197, 157, 0.7);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+
+.footer-nav a:hover::after,
+.footer-nav a:focus-visible::after {
+  transform: scaleX(1);
 }
 
 @media (max-width: 980px) {

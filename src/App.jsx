@@ -1032,7 +1032,18 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>© 2026. All rights reserved.</p>
+        <div className="footer-inner">
+          <p>© 2026 Zaighum Ali. All rights reserved.</p>
+
+          <nav className="footer-nav" aria-label="Footer navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#services">Services</a>
+            <a href="#featured-projects">Projects</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
       </footer>
       </div>
     </>
