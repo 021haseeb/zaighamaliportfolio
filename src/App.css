@@ -2353,8 +2353,41 @@ body {
   .project-slider-track .project-card {
     width: 100%;
     max-width: none;
+    min-height: auto;
     margin-left: 0;
     margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .project-filter {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+    text-align: center;
+  }
+
+  .project-slider-track .project-card {
+    min-height: 0;
+  }
+
+  .project-image {
+    height: 260px;
+  }
+
+  .project-copy h3 {
+    font-size: 1.5rem;
+  }
+
+  .project-copy p {
+    min-height: 0;
+    -webkit-line-clamp: 3;
   }
 }
 
@@ -2377,6 +2410,10 @@ body {
     padding: 0;
   }
 
+  .project-image {
+    height: 220px;
+  }
+
   .visual-panel {
     height: 180px;
     border-radius: 0;
@@ -2387,7 +2424,7 @@ body {
   }
 
   .project-copy h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .project-meta {
