@@ -284,6 +284,21 @@ const fadeInUp = {
   transition: { duration: 0.7, ease: 'easeOut' },
 }
 
+const openWhatsAppChat = () => {
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, let's discuss my project.")}`
+  const popup = window.open(
+    whatsappUrl,
+    'WhatsAppChat',
+    'width=420,height=680,scrollbars=yes,resizable=no,toolbar=no,menubar=no,location=no,status=no'
+  )
+
+  if (popup) {
+    popup.focus()
+  } else {
+    window.location.href = whatsappUrl
+  }
+}
+
 function AnimatedMetric({ value, suffix, label }) {
   const [count, setCount] = useState(0)
   const metricRef = useRef(null)
@@ -435,6 +450,7 @@ function App() {
   const [bookOpen, setBookOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('All projects')
+  const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -531,6 +547,15 @@ function App() {
       left: direction * cardWidth,
       behavior: 'smooth',
     })
+  }
+
+  const handleWhatsAppToggle = () => {
+    setIsWhatsAppOpen((prev) => !prev)
+  }
+
+  const handleWhatsAppContinue = () => {
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, let's discuss my project.")}`
+    window.location.href = whatsappUrl
   }
 
   // Hover-controlled animations for the book scene
@@ -1045,6 +1070,49 @@ function App() {
           </nav>
         </div>
       </footer>
+
+      <div className={`floating-whatsapp-panel ${isWhatsAppOpen ? 'open' : ''}`}>
+        <div className="floating-whatsapp-header">
+          <div className="floating-whatsapp-status">
+            <span className="floating-whatsapp-dot" />
+            WhatsApp
+          </div>
+          <button
+            type="button"
+            className="floating-whatsapp-close"
+            onClick={() => setIsWhatsAppOpen(false)}
+            aria-label="Close WhatsApp chat"
+          >
+            ×
+          </button>
+        </div>
+
+        <div className="floating-whatsapp-body">
+          <div className="floating-whatsapp-bubble-message">
+            Hi! I’m available for new projects and quick chats.
+          </div>
+          <div className="floating-whatsapp-bubble-message user-message">
+            I’d like to discuss my project.
+          </div>
+        </div>
+
+        <button type="button" className="floating-whatsapp-cta" onClick={handleWhatsAppContinue}>
+          Continue on WhatsApp
+        </button>
+      </div>
+
+      <button
+        type="button"
+        className="floating-whatsapp"
+        onClick={handleWhatsAppToggle}
+        aria-label="Chat on WhatsApp"
+      >
+        <span className="floating-whatsapp-bubble" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.52 3.48A11.82 11.82 0 0 0 12.05 0C5.47 0 .1 5.37.1 12.03c0 2.12.55 4.19 1.6 6.02L0 24l6.1-1.6a11.95 11.95 0 0 0 5.95 1.83h.01c6.58 0 11.94-5.37 11.94-12.03 0-3.2-1.25-6.23-3.49-8.72Zm-8.47 18.4h-.01a9.94 9.94 0 0 1-5.08-1.39l-.36-.22-3.62.95 1-3.53-.24-.36A9.87 9.87 0 0 1 2.21 12c0-5.48 4.46-9.95 9.96-9.95 2.66 0 5.16 1.04 7.04 2.92a9.96 9.96 0 0 1 2.91 7.03c0 5.48-4.46 9.95-9.96 9.95Zm5.47-7.44c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.74-1.64-2.03-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.17.05-.33-.02-.47-.08-.15-.67-1.62-.91-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.8.38-.27.3-1.03 1.01-1.03 2.46 0 1.45 1.05 2.85 1.2 3.05.15.2 2.07 3.17 5.02 4.45.7.3 1.25.48 1.68.62.71.22 1.35.19 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.28-.2-.58-.35Z" fill="currentColor"/>
+          </svg>
+        </span>
+      </button>
       </div>
     </>
   )
