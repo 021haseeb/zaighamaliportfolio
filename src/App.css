@@ -214,7 +214,6 @@ body {
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
-.nav-links a::before,
 .nav-cta::before,
 .primary-button::before,
 .secondary-button::before {
@@ -228,19 +227,42 @@ body {
 }
 
 .nav-links a {
+  position: relative;
   color: var(--text-soft);
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.7rem 0.4rem;
   border-radius: 0;
+  background: transparent;
+  border: 1px solid transparent;
 }
 
-.nav-links a:hover::before,
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  left: 0.35rem;
+  right: 0.35rem;
+  bottom: 0.2rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(146, 197, 157, 0.18), rgba(146, 197, 157, 1), rgba(146, 197, 157, 0.18));
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
 .nav-cta:hover::before,
 .primary-button:hover::before,
 .secondary-button:hover::before {
   transform: translateX(120%) skewX(-18deg);
+}
+
+.nav-links a:hover::before,
+.nav-links a:focus-visible::before {
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 .nav-links a:hover,
@@ -253,8 +275,10 @@ body {
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-  background: rgba(146, 197, 157, 0.08);
-  border: 1px solid rgba(146, 197, 157, 0.2);
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 .nav-cta,
@@ -2326,15 +2350,17 @@ body {
     padding: 0.85rem 0.95rem;
     border-radius: 12px;
     color: rgba(237, 245, 238, 0.9);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(146, 197, 157, 0.08);
-    backdrop-filter: blur(8px);
+    background: transparent;
+    border: 1px solid transparent;
+    backdrop-filter: none;
   }
 
   .nav-links a:hover,
   .nav-links a:focus-visible {
-    background: rgba(146, 197, 157, 0.08);
-    border-color: rgba(146, 197, 157, 0.2);
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
 
   .mobile-cta {
