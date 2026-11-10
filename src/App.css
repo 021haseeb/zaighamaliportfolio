@@ -1818,8 +1818,21 @@ body {
   padding: 10px 14px;
   border: 1px solid rgba(146, 197, 157, 0.18);
   border-radius: 18px;
-  background: linear-gradient(135deg, rgba(16, 22, 20, 0.9), rgba(24, 32, 29, 0.78));
+  background: #ffffff;
   box-shadow: 0 14px 24px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-company-logo-image {
+  padding: 10px 16px;
+}
+
+.testimonial-company-logo img {
+  display: block;
+  width: min(180px, 46vw);
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  background: #ffffff;
 }
 
 .testimonial-company-logo svg {

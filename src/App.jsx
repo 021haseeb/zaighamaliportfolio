@@ -94,6 +94,7 @@ import emyweb from './assets/emyweb.png'
 import aurum from './assets/aurum.png'
 import glenweb from './assets/glenweb.png'
 import cavient1 from './assets/cavient1.png'
+import logo11 from './assets/logo11.png'
 import { image } from 'framer-motion/client'
 
 const projectFilters = ['All projects', 'UI/UX', 'Website Design', 'WordPress', 'Logo & Branding', 'Graphic Design']
@@ -212,6 +213,7 @@ const testimonials = [
     author: 'Kelly',
     company: 'Asteria',
     role: 'Client',
+    logoImage: logo11,
     logoSvg: '<svg viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Asteria logo"><defs><linearGradient id="asteriaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#b9f5c8"/><stop offset="100%" stop-color="#88c89f"/></linearGradient></defs><rect width="180" height="72" rx="16" fill="#0f1714"/><circle cx="38" cy="36" r="20" fill="url(#asteriaGrad)" opacity="0.95"/><path d="M29 46 L38 22 L47 46 Z" fill="#0f1714"/><path d="M20 48 H56 L41 20 L34 20 Z" fill="#0f1714" opacity="0.2"/><path d="M69 49 L88 23 L107 49" stroke="#dff9e7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M77 39 H98" stroke="#dff9e7" stroke-width="5" stroke-linecap="round"/><path d="M124 25 H153 C160 25 165 30 165 37 C165 46 158 51 149 51 H131 C124 51 119 46 119 39 C119 30 124 25 131 25 Z" fill="url(#asteriaGrad)" opacity="0.9"/><path d="M129 32 H152 V48 H129 Z" fill="#0f1714" opacity="0.2"/></svg>',
     glow: 'rgba(231, 154, 107, 0.5)',
     halo: 'rgba(255, 247, 241, 0.68)',
@@ -412,10 +414,16 @@ function TestimonialStack({ items }) {
 
       <div className="testimonial-split-panel">
         <div className="testimonial-company-name-wrap">
-          <div
-            className="testimonial-company-logo"
-            dangerouslySetInnerHTML={{ __html: activeItem.logoSvg }}
-          />
+          {activeItem.logoImage ? (
+            <div className="testimonial-company-logo testimonial-company-logo-image">
+              <img src={activeItem.logoImage} alt={`${activeItem.company} logo`} />
+            </div>
+          ) : (
+            <div
+              className="testimonial-company-logo"
+              dangerouslySetInnerHTML={{ __html: activeItem.logoSvg }}
+            />
+          )}
         </div>
 
         <blockquote className="testimonial-quote">
