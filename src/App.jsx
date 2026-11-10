@@ -634,6 +634,11 @@ function App() {
                 <AnimatedMetric key={item.label} value={item.value} suffix={item.suffix} label={item.label} />
               ))}
             </div>
+
+            <a className="hero-scroll" href="#about" aria-label="Scroll to next section">
+              <span className="hero-scroll-label">Scroll</span>
+              <span className="hero-scroll-icon">↓</span>
+            </a>
           </motion.div>
 
           <motion.div

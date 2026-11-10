@@ -400,6 +400,50 @@ body {
   margin-top: 28px;
 }
 
+.hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 0.7rem 0.85rem 0.7rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(146, 197, 157, 0.22);
+  background: rgba(12, 16, 15, 0.58);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.hero-scroll-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.hero-scroll-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(146, 197, 157, 0.12);
+  border: 1px solid rgba(146, 197, 157, 0.16);
+  font-size: 1.15rem;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.hero-scroll:hover,
+.hero-scroll:focus-visible {
+  transform: translateY(2px);
+  border-color: rgba(146, 197, 157, 0.45);
+  background: rgba(18, 24, 22, 0.82);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
 .metrics-row {
   margin-top: 34px;
   display: flex;
@@ -790,11 +834,11 @@ body {
 
 .book-copy h2 {
   margin: 0 0 14px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.7rem, 3.4vw, 4.2rem);
-  line-height: 0.92;
-  letter-spacing: -0.04em;
-  font-weight: 600;
+  font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: clamp(2.55rem, 3.2vw, 4rem);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+  font-weight: 700;
   color: #edf5ee;
 }
 
@@ -861,9 +905,11 @@ body {
 .business-friction-copy h2 {
   margin: 0;
   max-width: 620px;
+  font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
   font-size: clamp(2.2rem, 2.9vw, 3.5rem);
   line-height: 0.96;
   letter-spacing: -0.065em;
+  font-weight: 700;
   color: #edf5ee;
 }
 
@@ -883,11 +929,11 @@ body {
 .section-heading h2 {
   margin: 0 auto;
   max-width: 780px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 3.8vw, 4.8rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  font-weight: 600;
+  font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: clamp(2.6rem, 3.5vw, 4.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+  font-weight: 700;
   color: #edf5ee;
   text-wrap: balance;
 }
@@ -1910,12 +1956,12 @@ body {
 .contact-copy h2 {
   margin: 0;
   max-width: 560px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 3.1vw, 4rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: clamp(2.6rem, 3.1vw, 4rem);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
   color: #edf5ee;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .contact-intro {
@@ -2416,6 +2462,10 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .hero-scroll {
+    margin-top: 18px;
   }
 
   .eyebrow,
