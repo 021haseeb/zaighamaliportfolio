@@ -109,15 +109,6 @@ const projects = [
     image: toptierweb,
   },
   {
-    name: 'The Little Hands School',
-    type: 'Educational Institution Website',
-    detail: 'A welcoming school experience for admissions, academics, and trust.',
-    accent: 'sage',
-    category: 'Website Design',
-    liveUrl: 'https://littlehands.vercel.app/',
-    image: thelittlehands,
-  },
-  {
     name: 'SAEC Construction',
     type: 'Construction website',
     detail: 'Construction services and completed work presented with clarity.',
@@ -997,7 +988,11 @@ function App() {
                   rel="noreferrer"
                   aria-label="Chat on WhatsApp"
                 >
-                  <span className="whatsapp-icon" aria-hidden="true">✆</span>
+                  <span className="whatsapp-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M20.52 3.48A11.82 11.82 0 0 0 12.05 0C5.47 0 .1 5.37.1 12.03c0 2.12.55 4.19 1.6 6.02L0 24l6.1-1.6a11.95 11.95 0 0 0 5.95 1.83h.01c6.58 0 11.94-5.37 11.94-12.03 0-3.2-1.25-6.23-3.49-8.72Zm-8.47 18.4h-.01a9.94 9.94 0 0 1-5.08-1.39l-.36-.22-3.62.95 1-3.53-.24-.36A9.87 9.87 0 0 1 2.21 12c0-5.48 4.46-9.95 9.96-9.95 2.66 0 5.16 1.04 7.04 2.92a9.96 9.96 0 0 1 2.91 7.03c0 5.48-4.46 9.95-9.96 9.95Zm5.47-7.44c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.74-1.64-2.03-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.17.05-.33-.02-.47-.08-.15-.67-1.62-.91-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.8.38-.27.3-1.03 1.01-1.03 2.46 0 1.45 1.05 2.85 1.2 3.05.15.2 2.07 3.17 5.02 4.45.7.3 1.25.48 1.68.62.71.22 1.35.19 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.28-.2-.58-.35Z" fill="currentColor"/>
+                    </svg>
+                  </span>
                   <span className="whatsapp-text-wrap">
                     <span className="whatsapp-label">Let&apos;s discuss on WhatsApp</span>
                     <span className="whatsapp-number">{whatsappDisplayNumber}</span>
@@ -1009,7 +1004,11 @@ function App() {
                   href={`tel:${whatsappNumber}`}
                   aria-label="Call now"
                 >
-                  <span className="call-icon" aria-hidden="true">☎</span>
+                  <span className="call-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M6.6 10.8c1.4 2.7 3.7 4.9 6.4 6.3l2.1-2.1c.3-.3.8-.4 1.2-.3 1.3.4 2.7.6 4.1.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.2 2.8.6 4.1.1.4 0 .9-.3 1.2L6.6 10.8Z" fill="currentColor"/>
+                    </svg>
+                  </span>
                   <span className="call-text-wrap">
                     <span className="call-label">Call now</span>
                     <span className="call-number">{whatsappDisplayNumber}</span>

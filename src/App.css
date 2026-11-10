@@ -11,10 +11,10 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(76, 54, 44, 0.68);
-  background: rgba(154, 95, 69, 0.12);
+  border: 1px solid rgba(146, 197, 157, 0.8);
+  background: rgba(146, 197, 157, 0.12);
   backdrop-filter: blur(2px);
-  box-shadow: 0 0 28px rgba(149, 91, 58, 0.18);
+  box-shadow: 0 0 28px rgba(122, 173, 138, 0.2);
   transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -22,8 +22,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #201b1a, #b16e4f);
-  box-shadow: 0 0 18px rgba(170, 107, 78, 0.38);
+  background: linear-gradient(135deg, #dff4e4, #7db88f);
+  box-shadow: 0 0 18px rgba(125, 184, 143, 0.42);
 }
 
 .custom-cursor.hovered,
@@ -34,9 +34,9 @@
 .custom-cursor.hovered {
   width: 52px;
   height: 52px;
-  background: rgba(181, 113, 76, 0.12);
-  border-color: rgba(76, 54, 44, 0.9);
-  box-shadow: 0 0 32px rgba(134, 76, 48, 0.2);
+  background: rgba(146, 197, 157, 0.16);
+  border-color: rgba(146, 197, 157, 0.95);
+  box-shadow: 0 0 32px rgba(122, 173, 138, 0.28);
 }
 
 :root {
@@ -941,7 +941,7 @@ body {
 .section-label {
   display: inline-block;
   margin-bottom: 12px;
-  text-align: center;
+  text-align: left;
 }
 
 .services {
@@ -1375,7 +1375,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 520px;
+  min-height: 560px;
   background: linear-gradient(180deg, rgba(17, 22, 20, 0.96), rgba(12, 16, 15, 0.94));
   border: 1px solid rgba(146, 197, 157, 0.12);
   backdrop-filter: blur(12px);
@@ -1487,7 +1487,7 @@ body {
 .project-image {
   display: block;
   width: 100%;
-  height: 300px;
+  height: 390px;
   object-fit: cover;
   object-position: center top;
   border-radius: 0;
@@ -1957,6 +1957,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .contact-copy h2 {
@@ -2168,10 +2170,18 @@ body {
   width: 42px;
   height: 42px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #8ec39d, #5d8e69);
-  color: #08120d;
+  background: linear-gradient(135deg, #29d366, #1ea952);
+  color: #ffffff;
   font-size: 1.35rem;
   box-shadow: 0 16px 28px rgba(57, 109, 77, 0.2);
+}
+
+.whatsapp-icon svg,
+.call-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  color: #ffffff;
 }
 
 .whatsapp-text-wrap,
