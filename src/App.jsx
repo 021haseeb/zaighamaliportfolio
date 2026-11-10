@@ -28,14 +28,14 @@ const services = [
     title: 'UI/UX Design (Web & Mobile)',
     description: 'Clean, intuitive interfaces for web and mobile products that prioritize user flow, clarity, and trust.',
     tags: ['UX Strategy', 'Wireframes', 'Mobile Design', 'System Design'],
-    accent: 'sage',
+    accent: 'dark',
     highlights: ['User journeys', 'Responsive flows', 'Interface design', 'Experience strategy'],
   },
   {
     title: 'Logo & Brand Identity',
     description: 'Premium brand identities that help businesses look memorable, consistent, and credible across every touchpoint.',
     tags: ['Logo Design', 'Brand Kit', 'Identity', 'Visual Style'],
-    accent: 'terracotta',
+    accent: 'sand',
     highlights: ['Logo concepts', 'Brand systems', 'Typography direction', 'Visual consistency'],
   },
   {
@@ -56,14 +56,14 @@ const services = [
     title: 'Local SEO & Google Business Profile',
     description: 'Local growth systems for businesses that want more visibility in their area and stronger trust from local audiences.',
     tags: ['Local SEO', 'Google Profile', 'Maps', 'Local Reach'],
-    accent: 'sage',
+    accent: 'dark',
     highlights: ['Map visibility', 'Profile optimization', 'Local ranking', 'Trust-building content'],
   },
   {
     title: 'Landing Pages & Optimization',
     description: 'Focused landing pages and optimization improvements that increase clarity, engagement, and higher-value conversions.',
     tags: ['Landing Pages', 'Optimization', 'Conversion', 'Funnels'],
-    accent: 'terracotta',
+    accent: 'sand',
     highlights: ['Landing page design', 'Conversion tweaks', 'Performance reviews', 'Sales-focused messaging'],
   },
 ]
@@ -210,8 +210,9 @@ const testimonials = [
   {
     quote: 'Zaighum helped us completely rethink our digital presence. The new site feels premium, clearer, and far more conversion-focused from the first visit onward.',
     author: 'Kelly',
-    company: 'Web Services',
+    company: 'Asteria',
     role: 'Client',
+    logoSvg: '<svg viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Asteria logo"><defs><linearGradient id="asteriaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#b9f5c8"/><stop offset="100%" stop-color="#88c89f"/></linearGradient></defs><rect width="180" height="72" rx="16" fill="#0f1714"/><circle cx="38" cy="36" r="20" fill="url(#asteriaGrad)" opacity="0.95"/><path d="M29 46 L38 22 L47 46 Z" fill="#0f1714"/><path d="M20 48 H56 L41 20 L34 20 Z" fill="#0f1714" opacity="0.2"/><path d="M69 49 L88 23 L107 49" stroke="#dff9e7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M77 39 H98" stroke="#dff9e7" stroke-width="5" stroke-linecap="round"/><path d="M124 25 H153 C160 25 165 30 165 37 C165 46 158 51 149 51 H131 C124 51 119 46 119 39 C119 30 124 25 131 25 Z" fill="url(#asteriaGrad)" opacity="0.9"/><path d="M129 32 H152 V48 H129 Z" fill="#0f1714" opacity="0.2"/></svg>',
     glow: 'rgba(231, 154, 107, 0.5)',
     halo: 'rgba(255, 247, 241, 0.68)',
   },
@@ -220,6 +221,7 @@ const testimonials = [
     author: 'Usman Farooq',
     company: 'Northpeak',
     role: 'Director',
+    logoSvg: '<svg viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Northpeak logo"><rect width="180" height="72" rx="16" fill="#0f1714"/><path d="M24 52 V20 L42 52 L60 20 V52" stroke="#8fd3ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M79 20 H103 V52 H79" stroke="#8fd3ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M115 32 L135 20 L155 32 V52 H115 Z" fill="#8fd3ff" opacity="0.9"/><path d="M123 44 H146" stroke="#0f1714" stroke-width="4" stroke-linecap="round"/></svg>',
     glow: 'rgba(124, 180, 220, 0.5)',
     halo: 'rgba(239, 247, 255, 0.7)',
   },
@@ -228,6 +230,7 @@ const testimonials = [
     author: 'Hira Saleem',
     company: 'Bloom Agency',
     role: 'Owner',
+    logoSvg: '<svg viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bloom logo"><rect width="180" height="72" rx="16" fill="#0f1714"/><path d="M28 48 C45 15 67 15 84 38 C92 48 102 54 112 54 C120 54 128 51 135 45 C147 34 157 25 164 24 C154 41 146 51 129 58 C118 63 102 64 87 61 C67 57 52 52 28 48 Z" fill="#dff7a3"/><path d="M40 46 C60 24 83 24 96 44 C69 52 53 53 40 46 Z" fill="#0f1714" opacity="0.15"/><circle cx="35" cy="35" r="6" fill="#dff7a3"/><path d="M120 26 L152 26 L136 49" stroke="#dff7a3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>',
     glow: 'rgba(170, 201, 120, 0.48)',
     halo: 'rgba(245, 250, 239, 0.68)',
   },
@@ -236,6 +239,7 @@ const testimonials = [
     author: 'Ayesha Rahman',
     company: 'Velora',
     role: 'Marketing Lead',
+    logoSvg: '<svg viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Velora logo"><rect width="180" height="72" rx="16" fill="#0f1714"/><path d="M26 48 L52 20 L72 47 L92 20 L118 48" stroke="#ffb3c2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M126 22 H154 V50 H126" stroke="#ffb3c2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M132 22 L154 50" stroke="#ffb3c2" stroke-width="6" stroke-linecap="round"/></svg>',
     glow: 'rgba(196, 112, 124, 0.46)',
     halo: 'rgba(255, 242, 244, 0.7)',
   },
@@ -244,6 +248,7 @@ const testimonials = [
     author: 'Sami Khan',
     company: 'Nexa',
     role: 'Operations Manager',
+    logoSvg: '<svg viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nexa logo"><rect width="180" height="72" rx="16" fill="#0f1714"/><circle cx="42" cy="36" r="18" fill="none" stroke="#d6c3ff" stroke-width="6"/><path d="M42 18 V54 M24 36 H60" stroke="#d6c3ff" stroke-width="6" stroke-linecap="round"/><path d="M92 22 H150 C158 22 164 28 164 36 C164 44 158 50 150 50 H92 L103 36 L92 22 Z" fill="#d6c3ff" opacity="0.9"/><path d="M104 29 H146" stroke="#0f1714" stroke-width="4" stroke-linecap="round"/></svg>',
     glow: 'rgba(176, 143, 220, 0.44)',
     halo: 'rgba(248, 243, 255, 0.7)',
   },
@@ -392,8 +397,10 @@ function TestimonialStack({ items }) {
 
       <div className="testimonial-split-panel">
         <div className="testimonial-company-name-wrap">
-          <span className="testimonial-company-name">{activeItem.company}</span>
-          <span className="testimonial-company-underline" aria-hidden="true" />
+          <div
+            className="testimonial-company-logo"
+            dangerouslySetInnerHTML={{ __html: activeItem.logoSvg }}
+          />
         </div>
 
         <blockquote className="testimonial-quote">
@@ -401,7 +408,7 @@ function TestimonialStack({ items }) {
         </blockquote>
 
         <div className="testimonial-footer-meta">
-          <span>{activeItem.author}, {activeItem.company}</span>
+          <span>{activeItem.author}, {activeItem.role}</span>
         </div>
 
         <div className="testimonial-pagination" aria-label="Testimonial pagination">
