@@ -989,19 +989,33 @@ function App() {
                 </div>
               )}
 
-              <a
-                className="whatsapp-glass-link"
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hi, let\'s discuss my project.')}`}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Chat on WhatsApp"
-              >
-                <span className="whatsapp-icon" aria-hidden="true">✆</span>
-                <span className="whatsapp-text-wrap">
-                  <span className="whatsapp-label">Let&apos;s discuss on WhatsApp</span>
-                  <span className="whatsapp-number">{whatsappDisplayNumber}</span>
-                </span>
-              </a>
+              <div className="contact-quick-actions">
+                <a
+                  className="whatsapp-glass-link"
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hi, let\'s discuss my project.')}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Chat on WhatsApp"
+                >
+                  <span className="whatsapp-icon" aria-hidden="true">✆</span>
+                  <span className="whatsapp-text-wrap">
+                    <span className="whatsapp-label">Let&apos;s discuss on WhatsApp</span>
+                    <span className="whatsapp-number">{whatsappDisplayNumber}</span>
+                  </span>
+                </a>
+
+                <a
+                  className="call-glass-link"
+                  href={`tel:${whatsappNumber}`}
+                  aria-label="Call now"
+                >
+                  <span className="call-icon" aria-hidden="true">☎</span>
+                  <span className="call-text-wrap">
+                    <span className="call-label">Call now</span>
+                    <span className="call-number">{whatsappDisplayNumber}</span>
+                  </span>
+                </a>
+              </div>
 
               <button type="submit" className="primary-button form-button">
                 Send inquiry
