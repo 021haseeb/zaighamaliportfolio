@@ -271,7 +271,7 @@ const navItems = [
 ]
 
 const whatsappNumber = '13854268090'
-const whatsappDisplayNumber = '+1 (385) 426-8090'
+const whatsappDisplayNumber = '(385) 426-8090'
 
 const contactInfo = [
   {
