@@ -592,7 +592,9 @@ function App() {
       <div className="portfolio-shell">
       <div className={`nav-backdrop ${isMenuOpen ? 'open' : ''}`} aria-hidden="true" />
       <header className="topbar">
-        <div className="brand-mark">Z</div>
+        <a href="#home" className="brand-mark-link" aria-label="Go to home page">
+          <span className="brand-mark">Z</span>
+        </a>
 
         <button
           type="button"
